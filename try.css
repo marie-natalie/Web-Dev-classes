@@ -1,0 +1,18 @@
+h1{
+   text-align: center;
+   background-color:#11f7d1;
+   
+}
+.House
+{
+   text-decoration: none;
+   color: black;
+
+   padding: 5px 14px;
+ }
+ .House:hover
+ {
+   opacity: 0.5;
+   background-color: black;
+
+ }
