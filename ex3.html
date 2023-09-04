@@ -3,88 +3,127 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-	 <link rel="stylesheet" href="ex.css">
+	<title>Contact</title>
+	 <link rel="stylesheet" href="ex3.css">
+   <script src="ex.js"></script>
+</head>
 
-<header>
-	<nav>
- <ul>
-  <li><a href="#https://ktdateas.com/">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="https://ktdateas.com/general-inquiries/">Contact</a></li>
-  <li style="float:right"><a class="active" href="https://ktdateas.com/about-us/">About</a></li>
-</ul>
-</nav>
-</header>
+
+<body>
+  <header>
+     <nav>
+        <ul class="topList">
+             <li><a href="ex1.html" class="topLinks">Home</a></li>
+              <li><a href="ex2.html" class="topLinks">News</a></li>
+              <li><a href="ex3.html" class="topLinks">Contact</a></li>
+              <li style="float:right"><a class="active" href="https://www.who.int/about/who-we-are" class="topLinks">WHO website</a></li>
+          </ul>
+      </nav>
+
+ </header>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
 
-</head>
-<body>
 
-<h1 style="text-align: center;">Kenya Tea Development Agency</h1>
 
-<p style="color: royalblue;"> A Global Leader in Quality Teas</p>
-    <p> KTDA is a private company owned by about 600,000 smallholder tea farmers spread across 16 tea growing counties in Kenya. The farmers are shareholders to 54 tea companies that own KTDA (H) and its 8 subsidiary companies.The eight subsidiary companies owned by KTDA (H) add value to the tea value chain. These companies include Chai Trading Company Limited, KTDA (Management Services), Majani Insurance Brokers, Kenya Tea Packers Limited, Greenland Fedha Limited, KTDA Foundation, Tea Machinery and Engineering Company Ltd, KTDA Power Company Limited and KTDA (MS). </p>
+<form id="contactPage" onsubmit="return validateForm()">
 
-<p>Products offered include:</p>
+
+<h1 style="text-align: center;">World Health Organization</h1>
+<div>
+
+<h2 style="color: lavender;"> What is the World Health Organization?</h2>
+    <p> Founded in 1948, the World Health Organization (WHO) is the United Nations agency dedicated to global health and safety. The Organization connects nations, partners and communities to promote health and serve the vulnerable. WHO works with its Member States to achieve the highest level of health for all people by pursuing universal health coverage. </p>
+
+<p>WHO headquarters are located in Geneva, Switzerland. WHO is governed by 194 Member States grouped into 6 regions. Each region is represented by a regional office, which coordinates programming in country offices and field offices. The WHO regions are:</p>
 <ul>
-  <li>Coffee</li>
-  <li>Tea</li>
-  <li>Milk</li>
+  <li>African Region</li>
+  <li>Region of the Americas / Pan American Health Organization</li>
+  <li>Eastern Mediterranean Region</li>
+  <li>European Region</li>
+  <li>South-East Asia Region</li>
+  <li>Western Pacific Region</li>
 </ul>
+</div>
+<br>
 
-<form >
-	<div><label for="name">Name</label></div>
-		<div><input type="text" name="name" placeholder="Enter you Full name" required></div>
+<h3>How can I support the work of WHO?</h3>
+<div class="SignUp">
+
+	<div><label for="fullname">Name</label></div>
+		<div><input type="text" class="input-box" name="fullname" placeholder="Enter you Full name" id="fullname" required></div>
+    <div class="error" id="errorfullname"></div>
+
 		<div><label for="address">Address</label></div>
-		<div><input type="address" name="address" placeholder="Enter your address" required></div>
+		<div><input type="address" class="input-box" name="address" placeholder="Enter your address" id="address" required></div>
+     <div class="error" id="erroraddress"></div>
+
 		<div><label for="useremail">Email</label></div>
-		<div><input type="email" name="useremail" placeholder="Enter your email"></div>
-		<div><label for="dod">Day of delivery</label></div>
-		<div><input type="date" name="dod" placeholder="Enter your day of delivery"></div>
+		<div><input type="email" class="input-box" name="useremail" placeholder="Enter your email" id="useremail"></div>
+     <div class="error" id="erroruseremail"></div>
+
+
 		<div><label for="number">Number</label></div>
 		<div>
-		<input type="number" name="userage" placeholder="Enter your mobile number"></div>
+		<input type="number" class="input-box" name="number" placeholder="Enter your mobile number" id="number"></div>
+    <div class="error" id="errornumber"></div>
+
+
+     <div><label for="age">Age</label></div>
+    <div><input type="date" class="input-box" name="age" placeholder="Enter your age" min="18 " id="age" required></div>
+    <div class="error" id="errorage"></div>
+
 		<!-- radio buttons -->
 		<div><label>Select your gender</label></div>
 		<div>
 		<input type="radio" name="gender" value="Male"><label>Male</label>
-		<input type="radio" name="gender" value="Female"><label>Female</label></div>
+		<input type="radio" name="gender" value="Female"><label>Female</label>
+        <div class="error" id="errorgender"></div>
+
+    </div>
 		
 
-  <label for="beverages">Choose a beverage:</label>
-  <select id="beverages" name="beverages">
-    <option value="coffee">Coffee</option>
-    <option value="tea">Tea</option>
-    <option value="milk">Milk</option>
+  <label for="paymentmethod">Choose payment method:</label>
+
+  <select class="input-box" id="amountPM" name="amountPM">
+    <option value="mpesa">M-PESA</option>
+    <option value="e-banking">e-banking</option>
+    <option value="paypal">PayPal</option>
   </select>
-  <input type="submit">
-</form>
+    <div class="error" id="erroramountPM"></div>
+
+
+
+<div><input type="number" name="amountPM" placeholder="Enter amount"></div>
+
+     <div><label for="password">Password</label></div>
+    <div><input type="password" class="input-box" name="password"  id="password" placeholder="Enter your password"  required></div>
+  <div class="error" id="errorpassword"></div>
+
+<select class="input-box" id="accountType" name="AccountType" required>
+        <option value="">--Select user--</option>
+        <option value="Doctor">Doctor</option>
+        <option value="Patient">Patient</option>
+       <option value="Resident">Resident</option>
+
+      </select><br>
+      <div class="error" id="errorAccountType"></div>
+
+
+
+<br><br>
+  <input type="submit" class="input-box" value="Donate monthly" style="height:50px; width:200px">
+
+
 <br>
+  </form>
+<footer>
+   <p>Marie Natalie, 2023, DBIT</p>
 
-<table border="1px">
-  <tr>
-    <th>Company</th>
-    <th>Work they do</th>
-    <th>Produce</th>
-  </tr>
-  <tr>
-    <td>KTDA</td>
-    <td>Manufacture tea</td>
-    <td>Tea leaves</td>
-  </tr>
+</footer>
   
-</table>
-
-<img src="KTDA logo.png" alt="KTDA logo">
-
-<a href="https://ktdateas.com/" target="_blank" title="This takes you to their site">  KTDA website</a>
-<a href="ex1.html" target="_blank" title="This takes you to the next page">  Next Page</a>
-
-    <a href="ex3.html">Home</a>
-
 </body>
+
 </html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact</title>
+  <link rel="stylesheet" href="ex3.css">
+  <script src="ex.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul class="topList">
+        <li><a href="ex1.html" class="topLinks">Home</a></li>
+        <li><a href="ex2.html" class="topLinks">News</a></li>
+        <li><a href="ex3.html" class="topLinks">Contact</a></li>
+        <li style="float:right"><a class="active" href="https://www.who.int/about/who-we-are" class="topLinks">WHO website</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+
+  <form id="contactPage" onsubmit="return validateForm()">
+    <h1 style="text-align: center;">World Health Organization</h1>
+    <div>
+      <h2 style="color: lavender;"> What is the World Health Organization?</h2>
+      <p> Founded in 1948, the World Health Organization (WHO) is the United Nations agency dedicated to global health and safety. The Organization connects nations, partners, and communities to promote health and serve the vulnerable. WHO works with its Member States to achieve the highest level of health for all people by pursuing universal health coverage. </p>
+      <p>WHO headquarters are located in Geneva, Switzerland. WHO is governed by 194 Member States grouped into 6 regions. Each region is represented by a regional office, which coordinates programming in country offices and field offices. The WHO regions are:</p>
+      <ul>
+        <li>African Region</li>
+        <li>Region of the Americas / Pan American Health Organization</li>
+        <li>Eastern Mediterranean Region</li>
+        <li>European Region</li>
+        <li>South-East Asia Region</li>
+        <li>Western Pacific Region</li>
+      </ul>
+    </div>
+    <br>
+    <h3>How can I support the work of WHO?</h3>
+    <div class="SignUp">
+      <div><label for="fullname">Name</label></div>
+      <div><input type="text" class="input-box" name="fullname" placeholder="Enter your Full name" id="fullname" required></div>
+      <div class="error" id="errorfullname"></div>
+
+      <div><label for="address">Address</label></div>
+      <div><input type="address" class="input-box" name="address" placeholder="Enter your address" id="address" required></div>
+      <div class="error" id="erroraddress"></div>
+
+      <div><label for="useremail">Email</label></div>
+      <div><input type="email" class="input-box" name="useremail" placeholder="Enter your email" id="useremail"></div>
+      <div class="error" id="erroruseremail"></div>
+
+      <div><label for="number">Number</label></div>
+      <div>
+        <input type="number" class="input-box" name="number" placeholder="Enter your mobile number" id="number"></div>
+      <div class="error" id="errornumber"></div>
+
+      <div><label for="age">Age</label></div>
+      <div><input type="date" class="input-box" name="age" placeholder="Enter your age" min="18" id="age" required></div>
+      <div class="error" id="errorage"></div>
+
+      <!-- radio buttons -->
+      <div><label>Select your gender</label></div>
+      <div>
+        <input type="radio" name="gender" value="Male"><label>Male</label>
+        <input type="radio" name="gender" value="Female"><label>Female</label>
+        <div class="error" id="errorgender"></div>
+      </div>
+
+      <label for="paymentmethod">Choose payment method:</label>
+      <select class="input-box" id="amountPM" name="amountPM">
+        <option value="mpesa">M-PESA</option>
+        <option value="e-banking">e-banking</option>
+        <option value="paypal">PayPal</option>
+      </select>
+      <div class="error" id="erroramountPM"></div>
+
+      <div><input type="number" name="amountPM" placeholder="Enter amount"></div>
+
+      <div><label for="password">Password</label></div>
+      <div><input type="password" class="input-box" name="password" id="password" placeholder="Enter your password" required></div>
+      <div class="error" id="errorpassword"></div>
+
+      <select class="input-box" id="AccountType" required>
+        <option value="">--Select user--</option>
+        <option value="Doctor">Doctor</option>
+        <option value="Patient">Patient</option>
+        <option value="Resident">Resident</option>
+      </select><br>
+      <div class="error" id="errorAccountType"></div>
+
+      <br><br>
+      <input type="submit" class="input-box" value="Donate monthly" style="height:50px; width:200px">
+      <br>
+    </div>
+  </form>
+
+  <footer>
+    <p>Marie Natalie, 2023, DBIT</p>
+  </footer>
+
+  <script type="text/javascript">
+    function validateForm() {
+      const fullname = document.getElementById("fullname").value.trim();
+      const address = document.getElementById("address").value;
+      const useremail = document.getElementById("useremail").value;
+      const number = document.getElementById("number").value;
+      const age = document.getElementById("age").value;
+      const gender = document.querySelector('input[name="gender"]:checked').value;
+      const amountPM = document.getElementById("amountPM").value;
+      const password = document.getElementById("password").value;
+      const AccountType = document.getElementById("AccountType").value;
+
+      // Regular expressions for validation
+      const nameRegex = /^[a-zA-Z\s]+$/;
+      const ageRegex = /^\d+$/;
+      const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+$/;
+
+      // Error message elements
+      const errorfullname = document.getElementById("errorfullname");
+      const erroraddress = document.getElementById("erroraddress");
+      const erroruseremail = document.getElementById("erroruseremail");
+      const errornumber = document.getElementById("errornumber");
+      const errorage = document.getElementById("errorage");
+      const errorgender = document.getElementById("errorgender");
+      const erroramountPM = document.getElementById("erroramountPM");
+      const errorpassword = document.getElementById("errorpassword");
+      const errorAccountType = document.getElementById("errorAccountType");
+
+      // Reset error messages
+      errorfullname.textContent = "";
+      erroraddress.textContent = "";
+      erroruseremail.textContent = "";
+      errornumber.textContent = "";
+      errorage.textContent = "";
+      errorgender.textContent = "";
+      erroramountPM.textContent = "";
+      errorpassword.textContent = "";
+      errorAccountType.textContent = "";
+
+      // Validation steps
+      let isValid = true;
+
+      if (fullname === "") {
+        errorfullname.textContent = "Please enter your Full Name.";
+        isValid = false;
+      } else if (!nameRegex.test(fullname)) {
+        errorfullname.textContent = "Name should only contain alphabets.";
+        isValid = false;
+      }
+
+      if (address.trim() === "") {
+        erroraddress.textContent = "Please enter your Address";
+        isValid = false;
+      }
+
+      if (useremail.trim() === "") {
+        erroruseremail.textContent = "Please enter your Email.";
+        isValid = false;
+      }
+
+      if (number === "") {
+        errornumber.textContent = "Please enter your Mobile Phone.";
+        isValid = false;
+      }
+
+      if (age === "") {
+        errorage.textContent = "Please enter your Date of Birth.";
+        isValid = false;
+      }
+
+      if (!gender) {
+        errorgender.textContent = "Please fill in your gender.";
+        isValid = false;
+      }
+
+      if (amountPM === "") {
+        erroramountPM.textContent = "Please enter an Amount per month.";
+        isValid = false;
+      }
+
+      if (password.trim() === "") {
+        errorpassword.textContent = "Please enter your Password.";
+        isValid = false;
+      } else if (!passwordRegex.test(password)) {
+        errorpassword.textContent = "Password should contain at least one uppercase letter and one number.";
+        isValid = false;
+      }
+
+      if (AccountType === "") {
+        errorAccountType.textContent = "Please select an Account Type.";
+        isValid = false;
+      }
+
+      // Display success message or return validation status
+      if (isValid) {
+        // Validation successful, allow form submission
+        const username = fullname;
+        const userAge = calculateAge(age);
+        if (userAge >= 18) {
+          alert("You (" + username + ") have successfully registered as " + AccountType + ".");
+          return true;
+        } else {
+          errorage.textContent = "You must be at least 18 years old to register.";
+          return false;
+        }
+      } else {
+        // Validation failed, show error messages and prevent form submission
+        return false;
+      }
+    }
+
+    function calculateAge(age) {
+      const birthDate = new Date(age);
+      const today = new Date();
+      let ageValue = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        ageValue--;
+      }
+      return ageValue;
+    }
+  </script>
+</body>
+</html>
